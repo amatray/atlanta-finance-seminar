@@ -49,6 +49,12 @@
     container.innerHTML = "";
 
     var status = el("p", { "class": "seat-status " + (info.spotsRemaining > 0 ? "open" : "full") });
+    if (info.notYetOpen) {
+      status.textContent = "Sign-up for this session has not opened yet. Sessions open two at a time, in date order.";
+      status.className = "seat-status notyet";
+      container.appendChild(status);
+      return;
+    }
     if (!info.registrationOpen) {
       status.textContent = "Registration for this session is closed.";
       status.className = "seat-status full";
@@ -57,7 +63,8 @@
     }
     status.textContent = info.spotsRemaining > 0
       ? info.spotsRemaining + " seat" + (info.spotsRemaining === 1 ? "" : "s") + " remaining"
-      : "This session is full. You can join the waitlist.";
+      : "This session is full. You can join the waitlist" +
+        (info.waitlistCount > 0 ? " (currently " + info.waitlistCount + " in line; spots are offered in sign-up order)." : ".");
     container.appendChild(status);
 
     var form = el("form");
