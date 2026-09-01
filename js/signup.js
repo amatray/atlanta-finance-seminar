@@ -78,6 +78,14 @@
     var iEmail = el("input", { type: "email", name: "email", required: "required", autocomplete: "email" });
     lEmail.appendChild(iEmail);
 
+    var lInst = el("label", null, "Institution");
+    var iInst = el("input", { type: "text", name: "institution", required: "required", autocomplete: "organization" });
+    lInst.appendChild(iInst);
+
+    var lMobile = el("label", null, "Mobile number (optional)");
+    var iMobile = el("input", { type: "tel", name: "mobile", autocomplete: "tel" });
+    lMobile.appendChild(iMobile);
+
     // Honeypot: real users never fill this; bots often do.
     var hp = el("input", { type: "text", name: "company", "class": "hp", tabindex: "-1", autocomplete: "off" });
     var hpWrap = el("div", { "class": "hp", "aria-hidden": "true" });
@@ -89,10 +97,12 @@
     var msg = el("p", { "class": "msg", role: "status", "aria-live": "polite" });
 
     var consent = el("p", { "class": "consent" },
-      "Your name and email are used only to manage this reservation and seminar reminders.");
+      "Your details are used only to manage this reservation, building access, and seminar reminders.");
 
     form.appendChild(lName);
     form.appendChild(lEmail);
+    form.appendChild(lInst);
+    form.appendChild(lMobile);
     form.appendChild(hpWrap);
     form.appendChild(submit);
     form.appendChild(consent);
@@ -109,6 +119,8 @@
         action: "signup",
         name: iName.value.trim(),
         email: iEmail.value.trim(),
+        institution: iInst.value.trim(),
+        mobile: iMobile.value.trim(),
         date: info.date,
         hp: hp.value,
         elapsed: Date.now() - startedAt
