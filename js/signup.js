@@ -10,7 +10,6 @@
   "use strict";
 
   var API = window.SEMINAR_API || "";
-  var ORGANIZER = "adrien.matray@gmail.com";
   var jsonpSeq = 0;
 
   function jsonp(params, timeoutMs) {
