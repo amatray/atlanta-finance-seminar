@@ -119,6 +119,9 @@ a:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
   padding: 26px clamp(22px, 3vw, 38px);
   background: var(--white); border: 1px solid var(--line); border-left: 5px solid var(--blue);
 }
+/* Homepage variant carrying the reservation form: the card grows tall, so the
+   schedule link sits at the top rather than centred against it. */
+.next-up-signup { align-items: start; }
 .next-up .label { color: var(--blue); font-size: 12px; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase; margin: 0 0 10px; }
 .next-up .next-date { margin: 0 0 4px; color: var(--muted); }
 .next-up .next-speaker { font-family: var(--serif); font-size: clamp(20px, 2.4vw, 28px); margin: 0 0 4px; color: var(--ink); }
