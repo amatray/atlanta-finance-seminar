@@ -177,6 +177,9 @@ a:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 /* Schedule notes: plain text on white, not a banner */
 .schedule-notes { list-style: none; margin: 0 0 18px; padding: 0; display: grid; gap: 3px; }
 .schedule-notes li { color: var(--muted); font-size: 15px; }
+.schedule-notes li.note-key { color: var(--blue); font-weight: 700; }
+/* Sits directly under the official-listing callout inside a shared section. */
+.official-note + .schedule-notes { margin-top: 26px; }
 
 /* Venue note */
 .venue-note { margin-top: 36px; max-width: 760px; }
