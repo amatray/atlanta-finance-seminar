@@ -113,7 +113,7 @@ main { overflow: hidden; }
 .band-soft + .band-soft { padding-top: 0; }
 /* Runs straight into the section below it on the same background, so it keeps
    only enough bottom padding to separate the card from the next heading. */
-.band-flush { padding-bottom: 24px; }
+.band-flush { padding-bottom: 36px; }
 
 p { margin: 0 0 1em; }
 main a:not(.btn):not(.page-link):not(.contact-link) { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; }
