@@ -97,12 +97,20 @@ main { overflow: hidden; }
 .section-inner { width: min(var(--maxw), 100%); margin: 0 auto; }
 .section h1 { font-family: var(--serif); font-size: clamp(30px, 3.4vw, 42px); line-height: 1.05; margin: 0 0 10px; color: var(--ink); }
 .section h2 { font-family: var(--serif); font-size: clamp(24px, 2.6vw, 32px); line-height: 1.1; margin: 0 0 18px; color: var(--ink); }
-.visit-prose { max-width: 640px; }
-.visit-prose p { margin: 0 0 12px; color: var(--body); }
-.visit-prose p:last-child { margin-bottom: 0; }
+/* Three columns rather than one narrow measure: a single 640px column left most
+   of the 1180px section empty on the right. */
+.visit-prose { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+.visit-prose p { margin: 0; color: var(--body); }
+@media (max-width: 860px) { .visit-prose { grid-template-columns: 1fr; gap: 14px; } }
 .lead { max-width: 760px; color: var(--muted); font-size: clamp(15px, 1.5vw, 18px); margin: 0 0 8px; }
 .band-soft { background: var(--blue-tint); }
 .band-tint { background: var(--blue-tint); }
+/* Two sections on the same background read as one block, so the second does not
+   re-pad the top; otherwise both paddings stack into a gap. */
+.band-tint + .band-tint,
+.band-tint + .band-soft,
+.band-soft + .band-tint,
+.band-soft + .band-soft { padding-top: 0; }
 
 p { margin: 0 0 1em; }
 main a:not(.btn):not(.page-link):not(.contact-link) { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; }
