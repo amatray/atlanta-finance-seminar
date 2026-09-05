@@ -254,7 +254,9 @@ a:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 /* ---------- contact band ---------- */
 .contact-band { background: var(--blue-tint); }
 .contact-band .section-inner { display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap; }
-.contact-band h2 { margin: 0; font-family: var(--serif); font-size: clamp(28px, 4vw, 44px); color: var(--ink); }
+/* Same size as every other section heading; this one carried its own larger
+   scale and rendered at 44px against 25px elsewhere. */
+.contact-band h2 { margin: 0; font-family: var(--serif); font-size: clamp(20px, 2vw, 26px); color: var(--ink); }
 .contact-band p { max-width: 600px; margin: 10px 0 0; color: var(--muted); }
 .contact-link { flex: 0 0 auto; padding: 14px 20px; color: var(--white); background: var(--blue); font-weight: 600; text-decoration: none; }
 .contact-link:hover { background: var(--blue-dark); }
