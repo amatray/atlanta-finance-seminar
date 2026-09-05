@@ -193,6 +193,9 @@ a:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 .seat-status.notyet { color: var(--muted); }
 .seat-note { font-size: 14px; margin: 0; }
 .signup form { display: grid; gap: 10px; max-width: 380px; margin-top: 10px; }
+/* display:grid above outranks the hidden attribute's default, so a collapsed
+   form needs this to actually stay closed. */
+.signup form[hidden] { display: none; }
 .signup label { font-size: 13px; color: var(--muted); display: grid; gap: 4px; font-weight: 650; }
 .signup input[type="text"], .signup input[type="email"], .signup input[type="tel"] {
   font: inherit; font-size: 16px; padding: 9px 11px; border: 1px solid var(--line); background: var(--white); color: var(--ink);

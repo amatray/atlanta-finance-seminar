@@ -44,7 +44,7 @@
   // No JSONP API yet: leave the server-rendered "Reserve a seat" button in place.
   function keepButton() { /* no-op */ }
 
-  function renderForm(container, info) {
+  function renderForm(container, info, collapsed) {
     container.innerHTML = "";
 
     var status = el("p", { "class": "seat-status " + (info.spotsRemaining > 0 ? "open" : "full") });
@@ -90,8 +90,9 @@
     var hpWrap = el("div", { "class": "hp", "aria-hidden": "true" });
     hpWrap.appendChild(hp);
 
+    var action = info.spotsRemaining > 0 ? "Reserve a seat" : "Join the waitlist";
     var submit = el("button", { type: "submit", "class": "btn" },
-      info.spotsRemaining > 0 ? "Reserve a seat" : "Join the waitlist");
+      collapsed && info.spotsRemaining > 0 ? "Send reservation" : action);
 
     var msg = el("p", { "class": "msg", role: "status", "aria-live": "polite" });
 
@@ -143,6 +144,21 @@
       });
     });
 
+    // Collapsed: the fields stay behind a button until asked for, so a landing
+    // page shows one control instead of a full form.
+    if (collapsed) {
+      var toggle = el("button", { type: "button", "class": "btn" }, action);
+      form.hidden = true;
+      toggle.addEventListener("click", function () {
+        form.hidden = !form.hidden;
+        toggle.textContent = form.hidden ? action : "Close";
+        toggle.setAttribute("aria-expanded", form.hidden ? "false" : "true");
+        if (!form.hidden) { iName.focus(); }
+      });
+      toggle.setAttribute("aria-expanded", "false");
+      container.appendChild(toggle);
+    }
+
     container.appendChild(form);
   }
 
@@ -159,7 +175,7 @@
       (Array.isArray(data) ? data : (data && data.data) || []).forEach(function (s) { byDate[s.date] = s; });
       containers.forEach(function (c) {
         var d = c.getAttribute("data-seminar-date");
-        if (byDate[d]) { renderForm(c, byDate[d]); }
+        if (byDate[d]) { renderForm(c, byDate[d], c.getAttribute("data-collapsed") === "true"); }
       });
     }).catch(keepButton);
   }
