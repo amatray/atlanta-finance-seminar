@@ -59,7 +59,7 @@ a { color: inherit; }
 .hero {
   position: relative; color: var(--white); isolation: isolate;
   display: grid; align-items: end; min-height: 340px;
-  padding: clamp(44px, 6vw, 76px) clamp(20px, 5vw, 72px) clamp(26px, 3vw, 38px);
+  padding: clamp(36px, 5vw, 62px) clamp(20px, 5vw, 72px) clamp(18px, 2vw, 26px);
   background-image:
     linear-gradient(90deg, rgba(0, 60, 100, 0.86) 0%, rgba(0, 72, 120, 0.62) 42%, rgba(0, 96, 160, 0.18) 100%),
     url("../img/fed-building.jpg");
@@ -78,7 +78,7 @@ a { color: inherit; }
   text-shadow: 0 1px 24px rgba(0, 30, 55, 0.35);
 }
 .hero-copy {
-  max-width: 700px; margin: 22px 0 36px;
+  max-width: 700px; margin: 18px 0 26px;
   color: rgba(255, 255, 255, 0.92); font-size: clamp(15px, 1.5vw, 18px);
 }
 .hero-meta {
@@ -86,14 +86,14 @@ a { color: inherit; }
   border: 1px solid rgba(255, 255, 255, 0.32); border-bottom: 0;
   background: rgba(0, 60, 100, 0.42); backdrop-filter: blur(2px);
 }
-.meta-item { min-height: 104px; padding: 20px 22px; border-right: 1px solid rgba(255, 255, 255, 0.24); }
+.meta-item { min-height: 84px; padding: 16px 22px; border-right: 1px solid rgba(255, 255, 255, 0.24); }
 .meta-item:last-child { border-right: 0; }
 .meta-item span { display: block; margin-bottom: 8px; color: #cfe3f5; font-size: 12px; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase; }
 .meta-item strong { display: block; font-size: 18px; line-height: 1.25; }
 
 /* ---------- Sections ---------- */
 main { overflow: hidden; }
-.section { padding: clamp(22px, 2.6vw, 36px) clamp(20px, 5vw, 72px); }
+.section { padding: clamp(14px, 1.6vw, 22px) clamp(20px, 5vw, 72px); }
 .section-inner { width: min(var(--maxw), 100%); margin: 0 auto; }
 .section h1 { font-family: var(--serif); font-size: clamp(30px, 3.4vw, 42px); line-height: 1.05; margin: 0 0 10px; color: var(--ink); }
 .section h2 { font-family: var(--serif); font-size: clamp(24px, 2.6vw, 32px); line-height: 1.1; margin: 0 0 18px; color: var(--ink); }
@@ -113,7 +113,7 @@ main { overflow: hidden; }
 .band-soft + .band-soft { padding-top: 0; }
 /* Runs straight into the section below it on the same background, so it keeps
    only enough bottom padding to separate the card from the next heading. */
-.band-flush { padding-bottom: 14px; }
+.band-flush { padding-bottom: 10px; }
 
 p { margin: 0 0 1em; }
 main a:not(.btn):not(.page-link):not(.contact-link) { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; }
@@ -130,7 +130,7 @@ a:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 /* ---------- Next seminar feature ---------- */
 .next-up {
   display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 28px; align-items: center;
-  padding: 26px clamp(22px, 3vw, 38px);
+  padding: 22px clamp(22px, 3vw, 38px);
   background: var(--white); border: 1px solid var(--line); border-left: 5px solid var(--blue);
 }
 /* Homepage variant carrying the reservation form: the card grows tall, so the
